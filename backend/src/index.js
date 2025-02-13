@@ -10,11 +10,16 @@ dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT;
+app.use((req, res, next) => {
+    console.log(`Received ${req.method} request for ${req.url}`);
+    next();
+});
+
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "http//localhost:5173",
+    origin: "http://localhost:5173",
     credentials: true,
 
 }))

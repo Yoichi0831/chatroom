@@ -137,6 +137,7 @@ const SignUpPage = () => {
                             )}
                         </button>
                     </form>
+                    
                     <div className="text-center">
                         <p className="text-base-content/60">
                             Already have an account?{" "}
