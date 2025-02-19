@@ -11,9 +11,11 @@ import LoginPage from "./pages/LoginPage";
 import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
 import { useAuthStore } from './store/useAuthStore';
+import { useThemeStore } from './store/useThemeStore';
 
 function App() {
   const {authUser, checkAuth, isCheckingAuth} = useAuthStore();
+  const {theme} = useThemeStore();
   useEffect(() => {
     checkAuth()
   }, [checkAuth])
@@ -22,10 +24,10 @@ function App() {
     <div className="flex items-center justify-center h-screen">
       <Loader className="size-10 animate-spin"/>
     </div>
-  )
+  );
 
   return (
-  <div>
+  <div data-theme={theme}>
     <Navbar />
     <Routes>
       <Route path="/" element = {authUser? <HomePage /> : <Navigate to="/login"/>} />
